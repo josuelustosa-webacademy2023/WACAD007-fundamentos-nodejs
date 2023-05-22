@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon-josuelustosa.svg"
+      type="image/x-icon"
+    />
+
+    <meta
+      name="keywords"
+      content="Gerador de Lorem Ipsum, Lorem Ipsum, Lorem Ipsum com Node.js"
+    />
+    <meta
+      name="description"
+      content="Uma aplicação que é disponibilizada através de um servidor Node.js, onde o usuário informa um número x e a aplicação imprime x parágrafos Lorem Ipsum."
+    />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Gerador de Lorem Ipsum</title>
+  </head>
+  <body>
+    <h1>Gerador de Lorem Ipsum</h1>
+
+    <form>
+      <span class="text-paragraph">Informe a quantidade parágrafo(s):</span>
+      <input
+        type="number"
+        name="inputParagraph"
+        class="input-paragraph"
+        id="input-paragraph"
+        value="0"
+        min="1"
+        max="120"
+        required
+      />
+
+      <button
+        type="button"
+        onclick="generateParagraph()"
+        class="button-paragraph"
+      >
+        Gerar
+      </button>
+    </form>
+
+    <div id="container-paragraph"></div>
+
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
