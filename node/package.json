@@ -1,7 +1,7 @@
 {
-  "name": "aula-01",
+  "name": "exercicios-node",
   "version": "1.0.0",
-  "description": "Exercício práticos da Aula 01 de Node.js",
+  "description": "Exercícios práticos de NodeJS utilizando CommonJS",
   "main": "index.js",
   "scripts": {
     "start": "npx nodemon index.js",
