@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
-const path = require("path");
 const until = require("./util.js");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -9,26 +9,31 @@ const PORT = process.env.PORT || 3333;
 const folder = process.argv[2];
 
 const server = http.createServer((req, res) => {
-  if (req.url === "/") {
+  const fileName = req.url;
+
+  if (fileName === "/") {
     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
 
     fs.readdir(folder, (err, files) => {
-      if (err) console.log("CONSOLE FILES ", err);
+      if (err) console.log("Error: ", err);
       else {
         files.forEach((f) => res.write(`${until.createLink(f)}<br>`));
-        res.end("<br>Instituto de Computação");
+        res.end();
       }
     });
   } else {
-    const fileName = decodeURIComponent(req.url.substring(6)); // Decodifica o nome do arquivo
     const filePath = path.join(folder, fileName);
 
-    res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
 
     fs.readFile(filePath, (err, data) => {
-      if (err) console.log("CONSOLE DATA ", data);
+      if (err) console.log("Error: ", err);
 
-      res.end(data);
+      res.write(`
+        ${until.createVoltar()} <br>
+        <div>${data}</div>
+      `);
+      res.end();
     });
   }
 });
